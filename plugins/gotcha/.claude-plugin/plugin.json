@@ -1,0 +1,12 @@
+{
+  "name": "gotcha",
+  "description": "A symptom-first registry of the traps your project has hit, with stable IDs and a validator that keeps it honest.",
+  "author": {
+    "name": "RedFirebreak",
+    "url": "https://github.com/RedFirebreak"
+  },
+  "homepage": "https://github.com/RedFirebreak/agent-forge/tree/main/plugins/gotcha",
+  "repository": "https://github.com/RedFirebreak/agent-forge",
+  "license": "MIT",
+  "keywords": ["gotcha", "documentation", "debugging", "knowledge-base", "registry"]
+}

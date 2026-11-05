@@ -1,0 +1,17 @@
+{
+  "name": "agent-forge",
+  "description": "Skills, agents and workflows for coding agents, built on real projects and shared as they are used.",
+  "owner": {
+    "name": "RedFirebreak",
+    "url": "https://github.com/RedFirebreak"
+  },
+  "plugins": [
+    {
+      "name": "gotcha",
+      "source": "./plugins/gotcha",
+      "description": "A symptom-first registry of the traps your project has hit, with stable IDs and a validator that keeps it honest.",
+      "category": "development",
+      "tags": ["documentation", "debugging", "knowledge-base", "registry"]
+    }
+  ]
+}
