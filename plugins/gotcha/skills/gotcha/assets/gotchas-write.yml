@@ -23,7 +23,7 @@ jobs:
   write:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Write the tables from the entries
         run: python3 tools/check_gotchas.py write
       - name: Commit them if they changed
