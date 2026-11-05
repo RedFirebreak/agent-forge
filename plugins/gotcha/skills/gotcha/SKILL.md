@@ -1,6 +1,9 @@
 ---
 name: gotcha
 description: Record a trap in the project's gotcha registry (docs/gotchas/) — a numbered, symptom-first entry with a stable ID, so the next person or session recognises it from what they see and skips the lost time. Use whenever behaviour of a shared framework, API, library, platform or toolchain has cost real time (roughly ten minutes or more) and would bite the next component too, not just the one being worked on. Also use when the project has no registry yet and such a trap turns up (bootstrap one), when an open question is confirmed or refuted live, when two entries overlap and should be merged, and whenever the user says "gotcha", "trap", "footgun", "note this for next time", "that bit us again" or "write that down".
+metadata:
+  version: "2026-11-05"
+  upstream: https://github.com/RedFirebreak/agent-forge/tree/main/plugins/gotcha
 ---
 
 # Gotcha
@@ -226,6 +229,13 @@ the project's `tools/check_gotchas.py`), the README template in `assets/`, and t
 - **The registry is outgrowing its shape** (an area file past roughly 25 entries, or the index hard to scan):
   propose a split to the user instead of just doing it. Splitting moves entries between files but never
   changes their IDs.
+
+**The version date.** `metadata.version` at the top of this file and `VERSION` in the validator hold the
+date of the last change, and every copy keeps the date of the reference it came from. Whoever changes the
+skill or the validator, here or in a project's copy, sets both dates to that day. Comparing a copy with the
+reference at https://github.com/RedFirebreak/agent-forge then tells which way it differs: an older date has
+updates to take, and a newer one has changes to port back (or to keep, if they are project-specific).
+`python3 tools/check_gotchas.py --version` prints a project's.
 
 This skill may live outside the repository: in the user's own skills directory, or in a plugin cache that
 the next update replaces. Tell the user what you changed and where. If it was installed as a plugin, edit

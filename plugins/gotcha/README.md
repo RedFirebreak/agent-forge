@@ -61,7 +61,12 @@ python3 tools/check_gotchas.py            # validate; prints OK or every problem
 python3 tools/check_gotchas.py write      # write the tables, index and counts from the entries
 python3 tools/check_gotchas.py next HTTP  # the next free ID in a prefix, counting retired ones
 python3 tools/check_gotchas.py ids        # the highest ID in use per prefix
+python3 tools/check_gotchas.py --version  # this copy's version date
 ```
+
+The skill's `metadata.version` and the validator's `VERSION` are the date of the last change. Every copy
+keeps the date of the version it was copied from, and a project that changes its copy sets that day. So a
+copy older than this repository has updates to take, and a newer one has changes worth sending back.
 
 It checks entry order and format, source keys, prefix ownership, links and anchors, and leftover template
 placeholders. It also scans every file git tracks for citations of retired IDs. `init` prints a

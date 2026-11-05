@@ -2,6 +2,8 @@
 """Keep a gotcha registry (docs/gotchas/) internally consistent.
 
 Part of the `gotcha` skill: https://github.com/RedFirebreak/agent-forge (MIT licence).
+VERSION below is the date of the last change, the same as the skill's `metadata.version`; a copy keeps
+the date of the reference it came from, and whoever changes a copy sets it to that day.
 
     python3 check_gotchas.py [DIR]          validate; prints OK or every problem found
     python3 check_gotchas.py [DIR] write    write the tables from the entries: each area file's
@@ -9,6 +11,7 @@ Part of the `gotcha` skill: https://github.com/RedFirebreak/agent-forge (MIT lic
     python3 check_gotchas.py [DIR] next PFX print the next free ID for a prefix (retired numbers count)
     python3 check_gotchas.py [DIR] ids      print the highest ID in use per prefix
     python3 check_gotchas.py init           scaffold docs/gotchas/ and copy this script to tools/
+    python3 check_gotchas.py --version      print this copy's version date
     python3 check_gotchas.py --hook         PostToolUse hook mode: reads the event JSON from stdin
                                             and, after an edit to a Markdown file inside a registry
                                             (a `gotchas/` directory with a README.md), validates
@@ -47,6 +50,8 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
+
+VERSION = "2026-11-05"
 
 DEFAULT_DIR = Path("docs/gotchas")
 NON_AREA = {"README.md", "open-questions.md"}
@@ -502,6 +507,9 @@ def registry_of(path: str) -> Path | None:
 
 
 def main(argv: list[str]) -> int:
+    if "--version" in argv:
+        print(f"check_gotchas.py {VERSION} (gotcha skill, https://github.com/RedFirebreak/agent-forge)")
+        return 0
     dir_arg = None
     if "--dir" in argv:
         i = argv.index("--dir")
